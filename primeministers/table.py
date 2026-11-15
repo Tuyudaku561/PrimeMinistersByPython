@@ -56,7 +56,7 @@ class Table:
 		if "thumbnail" not in key:
 			return[]
 		index = key.index("thumbnail")#thumbnailのindexを取得
-		filenames = []#ここにthumbnailfileを追加する
+		filenames = []#ここにthumbnailgfileを追加する
 		for a_tuple in self._tuples:
 			if a_tuple[index] != None:
 				filenames.append(a_tuple[index])
