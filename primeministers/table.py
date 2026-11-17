@@ -37,15 +37,31 @@ class Table:
 
 		return self._attributes
 
-	def image_filenames(self):
+	def image_filenames(self):#機能を実装11/15
 		"""画像ファイル群をリストにして応答する。"""
+		key = self._attributes.keys() 
+		if "image" not in key:
+			return[]
+		index = key.index("image")#imageのindexを取得
+		filenames = []#ここにimagefileを追加する
+		for a_tuple in self._tuples:
+			if a_tuple[index] != None:
+				filenames.append(a_tuple[index])
+		return filenames
+		#(lambda x: x)(self) # NOP
 
-		(lambda x: x)(self) # NOP
-
-	def thumbnail_filenames(self):
+	def thumbnail_filenames(self):#image_filenamesと同じ方法を採用11/15
 		"""縮小画像ファイル群をリストにして応答する。"""
-
-		return (lambda x: x)(self) # answer something
+		key = self._attributes.keys() 
+		if "thumbnail" not in key:
+			return[]
+		index = key.index("thumbnail")#thumbnailのindexを取得
+		filenames = []#ここにthumbnailgfileを追加する
+		for a_tuple in self._tuples:
+			if a_tuple[index] != None:
+				filenames.append(a_tuple[index])
+		return filenames
+		#return (lambda x: x)(self) # answer something
 
 
 	def tuples(self):
