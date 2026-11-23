@@ -1,8 +1,8 @@
-PYTHON	= python
+PYTHON	= python3
 PYDOC	= pydoc
 PYCS	= $(shell find . -name "*.pyc")
 PYCACHE	= $(shell find . -name "__pycache__")
-TARGET	= CSV2HTML.py
+TARGET	= PrimeMinisters.py
 PACKAGE	= csv2html
 INSTDIR	= CSV2HTML.app/Contents/Resources/Python/
 ARCHIVE	= $(shell basename `pwd`)
