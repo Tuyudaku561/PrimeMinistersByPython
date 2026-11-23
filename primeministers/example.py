@@ -24,7 +24,7 @@ class Example:
 		classes = []
 		classes.append(AttributesForPrimeMinisters)
 		classes.append(AttributesForTokugawaShogunate)
-
+		
 		for class_attributes in classes:
 			Translator.perform(class_attributes)
 
