@@ -25,7 +25,7 @@ class Attributes:
 
         self._keys = ""
         self._names = ""
-        (lambda x: x)(kind_string)
+        self.kind_string = kind_string
 
     def __str__(self):
         """自分自身を文字列にして、それを応答する。"""
@@ -137,7 +137,6 @@ class AttributesForPrimeMinisters(Attributes):
     def base_directory(cls, *ignore):
         """ベースとなるディレクトリ（ページを生成するためのフォルダ）を応答する。"""
 
-        (lambda x: x)(ignore)  # NOP
         return super().base_directory("PrimeMinisters")
 
     @classmethod
@@ -206,7 +205,6 @@ class AttributesForTokugawaShogunate(Attributes):
     def base_directory(cls, *ignore):
         """ベースとなるディレクトリ（ページを生成するためのフォルダ）を応答する。"""
 
-        (lambda x: x)(ignore)  # NOP
         return super().base_directory("TokugawaShogunate")
 
     @classmethod
