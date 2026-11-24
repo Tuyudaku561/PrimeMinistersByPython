@@ -48,10 +48,12 @@ class IO:
 			'\f' : '',
 		}
 
-		(lambda x: x)(a_string) # NOP
-		(lambda x: x)(table) # NOP
-
-		return (lambda x: x)(cls) # answer something
+		canonical_string =  "".join(
+			# tableにキーcharがあった場合は対応値、なかった場合にcharを返す
+			table.get(char, char)
+			for char in a_string
+		)
+		return canonical_string
 
 	def table(self):
 		"""テーブルを応答する。"""
