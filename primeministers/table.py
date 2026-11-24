@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from PrimeMinistersByPython.messaging import Condition, Interval, ValueHolder, ConditionSignal
+from messaging import Condition, Interval, ValueHolder, ConditionSignal
 """CSV2HTML：総理大臣と徳川幕府の情報「CSV」からWebページ「HTML」を生成。"""
 __author__ = 'AOKI Atsushi'
 __version__ = '1.0.7'

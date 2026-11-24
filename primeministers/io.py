@@ -6,7 +6,7 @@ __author__ = 'AOKI Atsushi'
 __version__ = '1.0.7'
 __date__ = '2021/01/10 (Created: 2016/01/01)'
 
-# import csv
+import csv
 
 class IO:
 	"""入出力：リーダ・ダウンローダ・ライタを抽象する。"""
@@ -25,9 +25,12 @@ class IO:
 	def read_csv(self, filename):
 		"""指定されたファイルをCSVとして読み込み、行リストを応答する。"""
 
-		(lambda x: x)(filename) # NOP
+		csv_list = []
 
-		return (lambda x: x)(self) # answer something
+		with open(filename, encoding="utf-8", newline="") as f:
+			csv_list = list(csv.reader(f))
+
+		return csv_list # answer something
 
 	@classmethod
 	def html_canonical_string(cls, a_string):
