@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from PrimeMinistersByPython.messaging import Condition, Interval, ValueHolder, ConditionSignal
+from messaging import Condition, Interval, ValueHolder, ConditionSignal
 """CSV2HTML：総理大臣と徳川幕府の情報「CSV」からWebページ「HTML」を生成。"""
 __author__ = 'AOKI Atsushi'
 __version__ = '1.0.7'
@@ -45,8 +45,9 @@ class Table:
 		index = key.index("image")#imageのindexを取得
 		filenames = []#ここにimagefileを追加する
 		for a_tuple in self._tuples:
-			if a_tuple[index] != None:
-				filenames.append(a_tuple[index])
+			value = a_tuple.values()[index]
+			if value is not None:
+				filenames.append(value)
 		return filenames
 		#(lambda x: x)(self) # NOP
 
@@ -58,8 +59,9 @@ class Table:
 		index = key.index("thumbnail")#thumbnailのindexを取得
 		filenames = []#ここにthumbnailgfileを追加する
 		for a_tuple in self._tuples:
-			if a_tuple[index] != None:
-				filenames.append(a_tuple[index])
+			value = a_tuple.values()[index]
+			if value is not None:
+				filenames.append(value)
 		return filenames
 		#return (lambda x: x)(self) # answer something
 
