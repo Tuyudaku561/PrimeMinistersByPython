@@ -10,7 +10,7 @@ __date__ = '2021/01/10 (Created: 2016/01/01)'
 import os
 
 from primeministers.io import IO
-from messaging import Condition, Interval, ValueHolder, ConditionSignal
+from messaging import  Interval
 # pylint: disable=R0201
 # R0201: Method could be a function (no-self-use)
 
@@ -19,9 +19,8 @@ class Writer(IO):
 
 	def __init__(self, output_table):
 		"""ライタのコンストラクタ。HTMLページを基にするテーブルを受け取る。"""
-
 		super().__init__(output_table)
-		(lambda x: x)(output_table) # NOP
+		
 
 	def perform(self):
 		"""HTMLページを基にするテーブルから、インデックスファイル(index_html)に書き出す。"""
@@ -82,12 +81,13 @@ class Writer(IO):
 		file.write('</tr>\n')
 		file.write('</tbody>\n')
 		file.write('</table>\n')
-		(lambda x: x)(file) # NOP
+		
 
 	def write_footer(self, file):
 		"""フッタを書き出す。"""
-
-		(lambda x: x)(file) # NOP
+		file.write("<hr>")
+		file.write("<div class='right-small'>Created by AOKI Atsushi (CSV2HTML written by Python) 2017/01/11 17:34:25</div>")
+		
 
 	def write_header(self, file):
 		"""ヘッダを書き出す。"""
@@ -97,6 +97,7 @@ class Writer(IO):
 		file.write('<meta http-equiv="Content-Script-Type" content="text/javascript">\n')
 		file.write('<meta name="keywords" content="'+title+'">\n')
 		file.write('<meta name="description" content="'+title+'">\n')
+		file.write('<meta name="author" content="AOKI Atsushi">\n')
 		file.write('<link rel="index" href="index.html">\n')
 		file.write("""<style type="text/css">
 <!--
@@ -169,4 +170,3 @@ td.center-yellow {
 """)
 		file.write("<title>"+ title +"</title>\n")
 		
-		(lambda x: x)(file) # NOP
