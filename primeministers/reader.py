@@ -14,13 +14,13 @@ from primeministers.io import IO
 class Reader(IO):
 	"""リーダ：情報を記したCSVファイルを読み込んでテーブルに仕立て上げる。"""
 
-	def __init__(self, input_table):
+	def __init__(self, input_table, filename):
 		"""リーダのコンストラクタ。"""
 
 		super().__init__(input_table)
-		(lambda x: x)(input_table) # NOP
+		self._filename = filename
 
 	def perform(self):
 		"""ダウンロードしたCSVファイルを読み込む。"""
-
-		(lambda x: x)(self) # NOP
+		csv_list = self.read_csv(self._filename)
+		
